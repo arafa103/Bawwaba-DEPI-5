@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 function ThemeContext() {
     return ( 
         <>
@@ -9,4 +7,3 @@ function ThemeContext() {
 }
 
 export default ThemeContext;
->>>>>>> Stashed changes
