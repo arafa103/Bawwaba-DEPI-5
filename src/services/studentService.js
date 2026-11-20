@@ -32,3 +32,4 @@ async function listStudents(filters){
 // updateStudentProfile() is deferred
 
 
+export {getStudent, listStudents};
