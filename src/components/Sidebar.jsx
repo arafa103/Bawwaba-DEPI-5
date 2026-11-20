@@ -86,4 +86,4 @@ import logo from "../assets/Bawwaba logo.svg"
     </aside>
   );
 }
-export default Sidebar
+export default Sidebar;
