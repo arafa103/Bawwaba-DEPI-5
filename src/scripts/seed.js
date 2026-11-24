@@ -1,3 +1,21 @@
+// ### Quick Checklist Before Running
+
+// 1. **ESM Compatibility:** Because Vite projects use `"type": "module"` in `package.json`, the script above uses `import` and `readFileSync` so it runs cleanly with `node scripts/seed.js` without CommonJS `require` errors.
+// 2. **Auth UIDs:** In Firebase Console $\rightarrow$ **Authentication**, create the two test users (`ahmadarafa103@gmail.com` and `nour.admin@bawwaba.edu`) and copy their generated **User UID** into the `uid` fields in `users` (and `studentId` for the student) if you want login rules to match immediately.
+// 3. **Constants File (`src/utils/constants.js`):** Add your active term config so your schedule builder doesn't need a `terms` collection:
+// ```javascript
+// export const ACTIVE_TERM = {
+//   name: 'Fall 2026',
+//   minCredits: 12,
+//   maxCredits: 18,
+//   addDropDeadline: '2026-10-15'
+// };
+// ```
+// For a quick walkthrough of using the Firebase Admin SDK in Node.js to read and write Cloud Firestore documents, see [Getting Started with Cloud Firestore with Node.js - Firecasts](https://www.youtube.com/watch?v=Z87OZtIYC_0).
+
+
+// new seed.js
+
 import { initializeApp, cert } from 'firebase-admin/app';
 import { getFirestore } from 'firebase-admin/firestore';
 import { readFileSync } from 'fs';
@@ -17,16 +35,17 @@ async function seedTierADatabase() {
   console.log('🌱 Seeding Bawwaba Tier A Database...');
 
   // 1. Users (Auth Role & ID Mapping)
+  // Note: Ensure these UIDs match the Auth UIDs created in Firebase Authentication
   const users = [
     {
-      uid: 'e4sBnCtYuAPBMjYjXA1J24XOh8D3',
+      uid: 'admin_nour_id',
       role: 'admin',
       studentId: null,
       name: 'Nour Hassan',
       email: 'nour.admin@bawwaba.edu'
     },
     {
-      uid: '8mCfuWru3XQ9NIN0NXREOyLJaRV2',
+      uid: '20250042',
       role: 'student',
       studentId: '20250042',
       name: 'Ahmed Mostafa',
