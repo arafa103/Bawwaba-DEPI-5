@@ -1,24 +1,16 @@
-import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import ProtectedRoute from './components/ProtectedRoute';
 
-import Login from './pages/Login';
 import CourseDashboard from './pages/admin/CourseDashboard';
 import StudentProfile from './pages/student/StudentProfile';
 import Sidebar from './components/Sidebar';
 
 function App() {
-    const location = useLocation();
-    const isLoginPage = location.pathname === '/login';
-
     return (
         <>
-            {!isLoginPage && <Sidebar />}
+            <Sidebar />
 
             <Routes>
-                {/* Public route */}
-                <Route path="/login" element={<Login />} />
-                <Route path="/" element={<Navigate to="/login" replace />} />
-
                 {/* Admin routes */}
                 <Route element={<ProtectedRoute allowedRole="admin" />}>
                     <Route
