@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { login, getUserContext } from '../services/authService';
+import { useTheme } from '../contexts/ThemeContext';
 import Logo from '../assets/Bawwaba logo.svg';
 
 function Login() {
@@ -11,6 +12,7 @@ function Login() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
+  const { theme, toggleTheme } = useTheme();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -108,8 +110,26 @@ function Login() {
       </div>
 
       {/* Right Login Form Panel */}
-      <div className="col-lg-7 bg-page d-flex flex-column justify-content-center align-items-center p-4 p-md-5">
-        <div className="w-100" style={{ maxWidth: '520px' }}>
+      <div className="col-lg-7 bg-page position-relative d-flex flex-column justify-content-center align-items-center p-4 p-md-5">
+        
+        {/* Theme Toggle Button - Top Right */}
+        <div className="position-absolute top-0 end-0 p-3 p-md-4">
+          <button 
+            type="button"
+            className="btn border border-card shadow-sm d-flex align-items-center justify-content-center rounded-circle bg-card"
+            onClick={toggleTheme}
+            style={{ width: '38px', height: '38px' }}
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? (
+              <i className="bi bi-sun-fill text-warning fs-5"></i>
+            ) : (
+              <i className="bi bi-moon-fill fs-5 text-color"></i>
+            )}
+          </button>
+        </div>
+
+        <div className="w-100 mt-4 mt-lg-0" style={{ maxWidth: '520px' }}>
           
           {/* Header outside card */}
           <div className="mb-4">
