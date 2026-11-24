@@ -1,0 +1,87 @@
+:root {
+  --navy: #193151; 
+  --blue: #3D6E9E;  
+  --bg: #fafaf1; 
+  --card: #ffffff; 
+  --dif-card:#193151;
+  --dif-card-color:#fafaf1;
+  --text: #111827; 
+  --muted: #5f6571;  
+  --border: #e5e7eb; 
+}
+
+body.dark {
+ --navy:   #0A111D;  
+  --blue:   #3D6E9E;  
+  --bg:     #0E1624;  
+  --card:   #141E2F;  
+  --border: #26334A;  
+  --text:   #E6EBF3;  
+  --muted:  #e7e8ec;
+  --dif-card:#19446e;
+  --dif-card-color:#fafaf1;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+h1, h2, .font-lora {
+  font-family: 'Lora', serif;
+}
+
+.navy{
+  background-color: var(--navy) !important;
+}
+.active-blue{
+    background-color: var(--blue) !important;
+}
+.color-blue{
+   color : var(--blue) !important ;
+}
+
+.text-color{
+  color: var(--text) !important;
+}
+.muted-color {
+  color : var(--muted) !important ;
+}
+.bg-page{
+  background-color:var(--bg) !important ;
+}
+.bg-muted{
+  background-color:var(--muted) !important ;
+}
+
+.bg-card {
+  background-color: var(--card) !important;
+}
+
+.border-card {
+  border-color: var(--border) !important;
+}
+.bg-dif-card{
+   background-color: var(--dif-card) !important;
+}
+.dif-card-color{
+  color : var(--dif-card-color) !important ;
+}
+.thead-style thead th{
+  background-color:var(--bg) !important ;
+  color : var(--muted) !important ;
+}
+.thead-style tbody td{
+  color: var(--text) !important;
+   background-color: var(--card) !important;
+   border-color: var(--border) !important;
+}
+
+.thead-style tbody td span{
+  color : var(--blue) !important ;
+  font-weight:bold;
+}
+
+.thead-style tbody p{
+   color: var(--text) !important;
+}
+
