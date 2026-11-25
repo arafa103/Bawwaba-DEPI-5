@@ -10,7 +10,6 @@ const usersRef = collection(db, "users")
 async function login(email, password) {
     const {user} = await signInWithEmailAndPassword(auth, email, password)
     return user || null;
-
 }
 
 // onAuthChanged: store user in context, get it by getUserContext
