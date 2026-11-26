@@ -9,16 +9,6 @@ import Sidebar from './components/Sidebar';
 
 function App() {
 
-  const [ranking, setRanking] = useState([])
-
-  async function getRankings() {
-    const serviceRanking = await getPublicRankings()
-    setRanking(serviceRanking)
-  }
-
-  useEffect(() => {
-    getRankings()
-  }, [])
 
   return (
     <>

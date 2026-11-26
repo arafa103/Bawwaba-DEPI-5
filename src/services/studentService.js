@@ -7,7 +7,7 @@ const studentsRef = collection(db, "students");
 async function getStudent(studentId){
     const studentRef = doc(studentsRef, studentId);
     const studentSnap = await getDoc(studentRef);
-    if(!studentSnap.exists()) return null;
+    if(!studentSnap.exists()) throw new Error("Student doesn't exist.");
     return studentSnap.data();
 }
 
