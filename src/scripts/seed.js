@@ -15,15 +15,23 @@
 
 
 // new seed.js
-
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
 import { initializeApp, cert } from 'firebase-admin/app';
 import { getFirestore } from 'firebase-admin/firestore';
 import { readFileSync } from 'fs';
+import fs from 'node:fs';   
+
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const serviceAccount = JSON.parse(
+  fs.readFileSync(path.resolve(__dirname, '../../serviceAccountKey.json'), 'utf-8')
+);   
 
 // Load serviceAccountKey.json (supports ES modules in Vite projects)
-const serviceAccount = JSON.parse(
-  readFileSync(new URL('../serviceAccountKey.json', import.meta.url))
-);
+// const serviceAccount = JSON.parse(
+//   readFileSync(new URL('../serviceAccountKey.json', import.meta.url))
+// );
 
 initializeApp({
   credential: cert(serviceAccount)
@@ -48,7 +56,7 @@ async function seedTierADatabase() {
       uid: '20250042',
       role: 'student',
       studentId: '20250042',
-      name: 'Ahmed Mostafa',
+      name: 'Ahmed Arafa',
       email: 'ahmadarafa103@gmail.com'
     }
   ];

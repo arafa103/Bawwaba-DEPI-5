@@ -7,7 +7,7 @@ const coursesRef = collection(db, "courses");
 async function getCourse(courseId){
     const courseRef = doc(coursesRef, courseId);
     const courseSnap = await getDoc(courseRef);
-    if(!courseSnap.exists()) return null;
+    if(!courseSnap.exists()) throw new Error("Course doesn't exist");
     return courseSnap.data();
 }
 

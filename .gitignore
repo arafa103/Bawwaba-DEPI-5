@@ -1,5 +1,7 @@
 .gitignore
 my_notes.txt
+serviceAccountKey.json   
+.env
 
 # Logs
 logs
