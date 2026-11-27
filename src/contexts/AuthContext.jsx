@@ -10,6 +10,7 @@ function AuthProvider({ children }) {
     const [user, setUser] = useState(null);
     const [role, setRole] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [studentId,setStudentId] = useState(null)
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
@@ -17,6 +18,7 @@ function AuthProvider({ children }) {
                 if (firebaseUser === null) {
                     setUser(null);
                     setRole(null);
+                    setStudentId(null);
                     return;
                 }
 
@@ -24,10 +26,12 @@ function AuthProvider({ children }) {
 
                 const userData = await getUserContext(firebaseUser.uid);
                 setRole(userData?.role ?? null);
+                setStudentId(userData?.studentId ?? null);
 
             } catch (error) {
                 console.error('Error loading user data:', error);
                 setRole(null);
+                setStudentId(null);
             } finally {
                 setLoading(false);
             }
@@ -40,6 +44,7 @@ function AuthProvider({ children }) {
         user,
         role,
         loading,
+        studentId,
         login,
         logout
     };
